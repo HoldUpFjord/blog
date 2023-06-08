@@ -1,0 +1,18 @@
+<h1>This is the BLog </h1>
+
+<% @blog_posts.each do |blog_post| %>
+    <div>
+      <%
+
+=begin%>
+
+  Rails knows the route blog_post on line 14 is a route object, and as such knows its linking to db index. abstracted from: "/blog_posts/#{blog_post.id}"
+
+<%
+
+=end%>
+        <h2><%= link_to blog_post.title, blog_post %></h2>
+        <p><%= blog_post.body %></p>
+    </div>
+<% end %>
+
