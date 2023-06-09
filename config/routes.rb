@@ -6,7 +6,7 @@ Rails.application.routes.draw do
        
        #blog_post_path(1) -> "blog_posts/1"
        #blog_post_url(1) -> www.disco.com/blogs/blog/1
-  
+  post "/blog_posts", to: "blog_posts#create", as: :blog_posts
   # Defines the root path route ("/")
   root "blog_posts#index"
 end
