@@ -8,7 +8,6 @@ class BlogPostsController < ApplicationController
   end
 
   def show
-    binding.pry
     # params comes from action controller
     @blog_post = BlogPost.find(params[:id])
   rescue ActiveRecord::RecordNotFound
@@ -33,6 +32,19 @@ class BlogPostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def edit
+    @blog_post = BlogPost.find(params[:id])
+  end
+
+  def update
+    @blog_post = BlogPost.find(params[:id])
+    if @blog_post.update(blog_post_params)
+        redirect_to @blog_post
+    else
+        render :edit, status: :unprocessable_entity
+    end
+   end
 
   private
 
